@@ -381,6 +381,121 @@
     }
     footer a:hover { color: rgba(255,255,255,.6); }
 
+    /* ── PORTFOLIO ── */
+    .portfolio { background: var(--paper); }
+    .portfolio-inner { max-width: 960px; margin: 0 auto; }
+    .portfolio-header { text-align: center; margin-bottom: 3.5rem; }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .pcard {
+      border-radius: 1.25rem;
+      overflow: hidden;
+      position: relative;
+      cursor: default;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .pcard:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.1); }
+
+    .pcard-inner {
+      padding: 2.5rem 2.5rem 2rem;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .pcard-cat {
+      font-size: .62rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,.45);
+      margin-bottom: auto;
+    }
+    .pcard-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.1;
+      color: var(--dark);
+      margin: 1rem 0 .5rem;
+    }
+    .pcard-client {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--mid);
+    }
+
+    /* color variants using existing palette */
+    .pcard-a { background: var(--purple); }
+    .pcard-b { background: var(--beige); }
+    .pcard-c { background: var(--green); }
+    .pcard-d { background: var(--blue); }
+    .pcard-e { background: var(--cream); border: 1px solid rgba(0,0,0,.08); }
+
+    .portfolio-cta {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .btn-dark {
+      background: var(--dark);
+      color: #fff;
+      border: none;
+    }
+
+    /* ── DEPOIMENTOS ── */
+    .testimonials { background: var(--cream); }
+    .testimonials-inner { max-width: 900px; margin: 0 auto; }
+    .testimonials-header { text-align: center; margin-bottom: 3.5rem; }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .tcard {
+      background: var(--paper);
+      border-radius: 1.25rem;
+      padding: 2.25rem 2.25rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .tcard:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,.06); }
+
+    .tcard-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--dark);
+    }
+    .tcard-quote::before { content: '\201C'; }
+    .tcard-quote::after  { content: '\201D'; }
+
+    .tcard-author {
+      display: flex;
+      flex-direction: column;
+      gap: .15rem;
+    }
+    .tcard-name {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.15rem;
+      color: var(--dark);
+    }
+    .tcard-role {
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+
     /* ── RESPONSIVE ── */
     @media (min-width: 640px) {
       .service-cards {
@@ -394,6 +509,26 @@
         align-items: start;
       }
       .card-05 .card-desc { margin-bottom: 0; }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .portfolio-grid .pcard:first-child {
+        grid-column: 1 / -1;
+      }
+      .portfolio-grid .pcard:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .testi-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .testi-grid .tcard:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        max-width: 520px;
+        margin: 0 auto;
+        width: 100%;
+      }
     }
 
     @media (max-width: 600px) {
@@ -431,6 +566,7 @@
     <ul class="nav-links">
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#trabalhos">Trabalhos</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
   </nav>
@@ -531,6 +667,104 @@
               <span class="card-tag">Sessão intensiva</span>
               <span class="card-tag">Posicionamento de Imagem</span>
             </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRABALHOS -->
+  <section class="portfolio" id="trabalhos">
+    <div class="portfolio-inner">
+      <div class="portfolio-header reveal">
+        <p class="section-label">uma seleção de</p>
+        <h2 class="section-title">Trabalhos</h2>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <div class="pcard pcard-a reveal">
+          <div class="pcard-inner">
+            <p class="pcard-cat">Direção Criativa · Campanha</p>
+            <h3 class="pcard-title">Lançamento de coleção</h3>
+            <p class="pcard-client">Marca de moda autoral</p>
+          </div>
+        </div>
+
+        <div class="pcard pcard-b reveal">
+          <div class="pcard-inner">
+            <p class="pcard-cat">Marca Pessoal · Conteúdo</p>
+            <h3 class="pcard-title">Presença digital estratégica</h3>
+            <p class="pcard-client">Empreendedora criativa</p>
+          </div>
+        </div>
+
+        <div class="pcard pcard-c reveal">
+          <div class="pcard-inner">
+            <p class="pcard-cat">Gerenciamento Artístico</p>
+            <h3 class="pcard-title">Construção de carreira</h3>
+            <p class="pcard-client">DJ independente</p>
+          </div>
+        </div>
+
+        <div class="pcard pcard-d reveal">
+          <div class="pcard-inner">
+            <p class="pcard-cat">Direção Visual · Campanha</p>
+            <h3 class="pcard-title">Identidade de lançamento</h3>
+            <p class="pcard-client">Infoproduto educacional</p>
+          </div>
+        </div>
+
+        <div class="pcard pcard-e reveal">
+          <div class="pcard-inner">
+            <p class="pcard-cat">Imersão de Imagem</p>
+            <h3 class="pcard-title">Redefinição de posicionamento</h3>
+            <p class="pcard-client">Figura pública em transição</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="portfolio-cta reveal">
+        <a href="https://www.instagram.com/fabiolavnovaes" target="_blank" rel="noopener" class="btn btn-dark">
+          Ver mais no Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="testimonials">
+    <div class="testimonials-inner">
+      <div class="testimonials-header reveal">
+        <p class="section-label">quem já viveu</p>
+        <h2 class="section-title">Depoimentos</h2>
+      </div>
+
+      <div class="testi-grid">
+
+        <div class="tcard reveal">
+          <p class="tcard-quote">A Fabíola tem um olhar único para transformar o que você quer dizer em algo que as pessoas sentem. Minha presença digital mudou completamente depois da imersão.</p>
+          <div class="tcard-author">
+            <span class="tcard-name">Ana Lima</span>
+            <span class="tcard-role">Empreendedora · São Paulo</span>
+          </div>
+        </div>
+
+        <div class="tcard reveal">
+          <p class="tcard-quote">Ela não entrega só uma campanha bonita — entrega intenção. Cada detalhe do lançamento foi pensado de forma estratégica e o resultado superou todas as expectativas.</p>
+          <div class="tcard-author">
+            <span class="tcard-name">Mariana Costa</span>
+            <span class="tcard-role">Fundadora de marca de moda</span>
+          </div>
+        </div>
+
+        <div class="tcard reveal">
+          <p class="tcard-quote">Trabalhar com a Fabi foi um divisor de águas na minha carreira. Ela consegue ver o que você ainda não sabe que tem e transforma isso em presença real.</p>
+          <div class="tcard-author">
+            <span class="tcard-name">DJ Renata V.</span>
+            <span class="tcard-role">Artista independente</span>
           </div>
         </div>
 
