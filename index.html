@@ -3,10 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fabíola Novaes</title>
+  <title>Fabíola Novaes — Direção Criativa</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Construo o posicionamento de marcas e pessoas através da imagem, da estética e da presença. Direção criativa, conteúdo e marca pessoal." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://fabiolanovaes.com" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fabiolanovaes.com" />
+  <meta property="og:title" content="Fabíola Novaes — Direção Criativa" />
+  <meta property="og:description" content="Construo o posicionamento de marcas e pessoas através da imagem, da estética e da presença." />
+  <meta property="og:site_name" content="Fabíola Novaes" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Fabíola Novaes — Direção Criativa" />
+  <meta name="twitter:description" content="Construo o posicionamento de marcas e pessoas através da imagem, da estética e da presença." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.svg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Dancing+Script:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -31,6 +54,17 @@
       font-weight: 300;
       line-height: 1.6;
       overflow-x: hidden;
+    }
+
+    /* ── FADE-IN ON SCROLL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* ── NAV ── */
@@ -65,6 +99,27 @@
       transition: color .2s;
     }
     .nav-links a:hover { color: var(--dark); }
+
+    /* mobile hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: .25rem;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--dark);
+      transition: transform .3s, opacity .3s;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
     /* ── HERO ── */
     .hero {
@@ -140,6 +195,11 @@
       width: 1px;
       height: 40px;
       background: var(--light);
+      animation: scrollLine 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { opacity: .3; transform: scaleY(.6); }
+      50%       { opacity: 1;  transform: scaleY(1); }
     }
 
     /* ── SECTION COMMONS ── */
@@ -198,6 +258,11 @@
       padding: 2.5rem 2.5rem 2rem;
       position: relative;
       overflow: hidden;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,.08);
     }
     .card-01 { background: var(--purple); }
     .card-02 { background: var(--beige); }
@@ -277,14 +342,19 @@
       text-decoration: none;
       transition: opacity .2s, transform .15s;
     }
-    .btn:hover { opacity: .85; transform: translateY(-1px); }
-    .btn-light {
-      background: #fff;
-      color: var(--dark);
-    }
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,.35);
+    .btn:hover { opacity: .85; transform: translateY(-2px); }
+    .btn-light  { background: #fff; color: var(--dark); }
+    .btn-outline { border: 1px solid rgba(255,255,255,.35); color: #fff; }
+    .btn-whatsapp {
+      background: #25D366;
       color: #fff;
+    }
+
+    /* whatsapp icon svg */
+    .ico-wa {
+      width: 15px; height: 15px;
+      fill: currentColor;
+      flex-shrink: 0;
     }
 
     /* ── FOOTER ── */
@@ -326,9 +396,25 @@
       .card-05 .card-desc { margin-bottom: 0; }
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 600px) {
       nav { padding: 1rem 1.25rem; }
-      .nav-links { gap: 1.2rem; }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--cream);
+        border-bottom: 1px solid rgba(0,0,0,.07);
+        padding: .5rem 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li a {
+        display: block;
+        padding: .85rem 1.5rem;
+      }
       section { padding: 4rem 1.25rem; }
       .card { padding: 2rem 1.5rem 1.75rem; }
     }
@@ -339,6 +425,9 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">Fabíola N.</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-links">
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#servicos">Serviços</a></li>
@@ -363,7 +452,7 @@
   </section>
 
   <!-- SOBRE -->
-  <section class="about" id="sobre">
+  <section class="about reveal" id="sobre">
     <p class="section-label">quem sou</p>
     <blockquote class="about-quote">
       "Construo o posicionamento de marcas e pessoas através da imagem, da estética e da presença."
@@ -374,7 +463,7 @@
   <!-- SERVIÇOS -->
   <section class="services" id="servicos">
     <div class="services-inner">
-      <div class="services-header">
+      <div class="services-header reveal">
         <p class="section-label">uma espiada nos</p>
         <h2 class="section-title">Serviços</h2>
       </div>
@@ -382,7 +471,7 @@
       <div class="service-cards">
 
         <!-- 01 -->
-        <div class="card card-01">
+        <div class="card card-01 reveal">
           <p class="card-num">01</p>
           <h3 class="card-title">Direção criativa para campanhas</h3>
           <p class="card-desc">Para lançamentos de produtos, infoprodutos, serviços e campanhas institucionais, do conceito à execução criativa.</p>
@@ -394,7 +483,7 @@
         </div>
 
         <!-- 02 -->
-        <div class="card card-02">
+        <div class="card card-02 reveal">
           <p class="card-num">02</p>
           <h3 class="card-title">Direção Criativa de conteúdo</h3>
           <p class="card-desc">Para quem já tem presença digital mas precisa de coerência estética, narrativa e intenção em tudo que publica.</p>
@@ -406,7 +495,7 @@
         </div>
 
         <!-- 03 -->
-        <div class="card card-03">
+        <div class="card card-03 reveal">
           <p class="card-num">03</p>
           <h3 class="card-title">Gerenciamento artístico</h3>
           <p class="card-desc">Para artistas, DJs e criadores que estão construindo carreira e precisam de alguém que pense em imagem, comunicação e presença de forma estratégica e contínua.</p>
@@ -419,7 +508,7 @@
         </div>
 
         <!-- 04 -->
-        <div class="card card-04">
+        <div class="card card-04 reveal">
           <p class="card-num">04</p>
           <h3 class="card-title">Marca Pessoal</h3>
           <p class="card-desc">Para empreendedoras, profissionais criativas e figuras públicas que querem posicionar imagem e presença de forma intencional e estratégica.</p>
@@ -431,7 +520,7 @@
         </div>
 
         <!-- 05 -->
-        <div class="card card-05">
+        <div class="card card-05 reveal">
           <div>
             <p class="card-num">05</p>
             <h3 class="card-title">Imersão de imagem</h3>
@@ -450,11 +539,18 @@
   </section>
 
   <!-- CONTATO -->
-  <section class="contact" id="contato">
+  <section class="contact reveal" id="contato">
     <p class="section-label">bora trabalhar juntos?</p>
     <h2 class="section-title">call me &lt;3</h2>
     <p class="contact-sub">Me conta o que você precisa — imagem, campanha, conteúdo ou presença. Vamos construir algo incrível.</p>
     <div class="contact-links">
+      <a href="https://wa.me/55XXXXXXXXXXX?text=Oi%20Fabíola%2C%20vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20seus%20serviços!"
+         target="_blank" rel="noopener" class="btn btn-whatsapp" aria-label="Contato via WhatsApp">
+        <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.17 1.6 5.98L0 24l6.18-1.62A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 21.93a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.73.98 1-3.63-.24-.38A9.9 9.9 0 0 1 2.07 12C2.07 6.52 6.52 2.07 12 2.07S21.93 6.52 21.93 12 17.48 21.93 12 21.93zm5.44-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15s-.77.97-.94 1.17c-.17.2-.35.22-.65.07a8.17 8.17 0 0 1-2.4-1.48 9 9 0 0 1-1.66-2.07c-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.91-2.2-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.03 1-1.03 2.44s1.05 2.83 1.2 3.03c.15.2 2.07 3.16 5.01 4.43.7.3 1.25.48 1.67.62.7.22 1.34.19 1.84.12.56-.09 1.76-.72 2-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.19-.57-.34z"/>
+        </svg>
+        WhatsApp
+      </a>
       <a href="https://www.instagram.com/fabiolavnovaes" target="_blank" rel="noopener" class="btn btn-light">
         Instagram
       </a>
@@ -469,6 +565,29 @@
     <p>© 2026 Fabíola Novaes</p>
     <a href="https://www.instagram.com/fabiolavnovaes" target="_blank" rel="noopener">@fabiolavnovaes</a>
   </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const links  = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+  </script>
 
 </body>
 </html>
