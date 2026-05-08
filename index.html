@@ -789,8 +789,10 @@
     <h2 class="section-title">call me &lt;3</h2>
     <p class="contact-sub">Me conta o que você precisa — imagem, campanha, conteúdo ou presença. Respondo rápido.</p>
 
-    <!-- Substitua YOUR_FORM_ID pelo seu ID do Formspree (formspree.io) -->
-    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
+      <input type="hidden" name="subject" value="Novo contato pelo site fabiolanovaes.com" />
+      <input type="hidden" name="redirect" value="https://fabiolanovaes.com" />
       <div class="form-row">
         <input type="text"  name="nome"  placeholder="Seu nome"  required />
         <input type="email" name="email" placeholder="Seu e-mail" required />
