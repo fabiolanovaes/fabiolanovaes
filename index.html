@@ -385,6 +385,46 @@
     .tcard-name { font-family: 'Dancing Script', cursive; font-size: 1.15rem; color: var(--dark); }
     .tcard-role { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--light); }
 
+    /* ── Para quem ── */
+    .para-quem { background: var(--dark); padding: 6rem 1.5rem; }
+    .para-quem-inner { max-width: 860px; margin: 0 auto; }
+    .para-quem-header { text-align: center; margin-bottom: 3.5rem; }
+    .para-quem-header .section-title { color: var(--cream); }
+    .para-quem-header .section-label { color: var(--purple); }
+    .para-quem-grid { display: flex; flex-direction: column; gap: 0; }
+    .pq-card {
+      display: grid;
+      grid-template-columns: 1fr 2rem 1fr;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .pq-card:first-child { border-top: 1px solid rgba(255,255,255,.1); }
+    .pq-service {
+      font-size: .95rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: var(--purple);
+      text-transform: uppercase;
+    }
+    .pq-arrow {
+      text-align: center;
+      color: rgba(255,255,255,.3);
+      font-size: 1.2rem;
+    }
+    .pq-who {
+      font-size: .95rem;
+      color: rgba(255,255,255,.75);
+      line-height: 1.5;
+    }
+    @media (max-width: 600px) {
+      .pq-card { grid-template-columns: 1fr; gap: .4rem; }
+      .pq-arrow { display: none; }
+      .pq-service { font-size: .82rem; }
+      .pq-who { font-size: .88rem; padding-left: .5rem; border-left: 2px solid var(--purple); }
+    }
+
     /* ── FAQ ── */
     .faq { background: var(--cream); }
     .faq-inner { max-width: 720px; margin: 0 auto; }
@@ -712,6 +752,44 @@
             <h3 class="step-title">Entrega</h3>
             <p class="step-desc">Resultado com intenção, apresentado com clareza. Você sai com presença, posicionamento e tudo que precisa para seguir em frente.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Para quem são os serviços -->
+  <section class="para-quem">
+    <div class="para-quem-inner">
+      <div class="para-quem-header reveal">
+        <p class="section-label">serviço para quem</p>
+        <h2 class="section-title">Para quem são<br>os serviços</h2>
+      </div>
+      <div class="para-quem-grid reveal">
+        <div class="pq-card">
+          <div class="pq-service">Construção de Marca Pessoal</div>
+          <div class="pq-arrow">→</div>
+          <div class="pq-who">Empreendedoras, profissionais criativas, figuras públicas</div>
+        </div>
+        <div class="pq-card">
+          <div class="pq-service">Direção Criativa de Conteúdo</div>
+          <div class="pq-arrow">→</div>
+          <div class="pq-who">Criadores de conteúdo, marcas pessoais ativas</div>
+        </div>
+        <div class="pq-card">
+          <div class="pq-service">Imersão de Imagem</div>
+          <div class="pq-arrow">→</div>
+          <div class="pq-who">Quem está em transição, relançamento ou quer clareza rápida</div>
+        </div>
+        <div class="pq-card">
+          <div class="pq-service">Gerenciamento Artístico</div>
+          <div class="pq-arrow">→</div>
+          <div class="pq-who">DJs, artistas e influenciadores em construção de carreira</div>
+        </div>
+        <div class="pq-card">
+          <div class="pq-service">Direção Criativa para Campanhas</div>
+          <div class="pq-arrow">→</div>
+          <div class="pq-who">Marcas de moda e beauty e infoprodutos em lançamento</div>
         </div>
       </div>
     </div>
