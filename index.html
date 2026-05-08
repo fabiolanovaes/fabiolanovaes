@@ -27,18 +27,18 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Dancing+Script:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Dancing+Script:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream:   #f5f0e8;
-      --paper:   #faf7f2;
-      --purple:  #FF5200;
-      --blue:    #FF5200;
-      --green:   #FF5200;
-      --beige:   #FF5200;
+      --cream:   #F2EDBC;
+      --paper:   #F7F3CC;
+      --purple:  #C8382A;
+      --blue:    #C8382A;
+      --green:   #C8382A;
+      --beige:   #C8382A;
       --dark:    #1a1a1a;
       --mid:     #4a4a4a;
       --light:   #8a8a8a;
@@ -140,64 +140,117 @@
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      background: var(--cream);
+    }
+    .hero-left {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 8rem 2rem 4rem;
+      justify-content: flex-end;
+      padding: 7rem 3rem 4rem;
     }
-    .hero-tag {
-      font-size: .7rem; letter-spacing: .2em;
+    .hero-eyebrow {
+      font-size: .62rem; letter-spacing: .22em;
       text-transform: uppercase; color: var(--light);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
     }
-    .hero-call {
+    .hero-editorial { margin-bottom: 2.5rem; line-height: 1; }
+    .he-call {
       font-family: 'Dancing Script', cursive;
-      font-size: clamp(2.8rem, 8vw, 6rem);
-      line-height: 1.1; color: var(--dark); margin-bottom: .5rem;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--mid);
+      margin-bottom: .1rem;
     }
-    .hero-name {
+    .he-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 10vw, 8.5rem);
+      line-height: .9;
+      color: var(--dark);
+      letter-spacing: .01em;
+    }
+    .he-row {
+      display: flex;
+      align-items: baseline;
+      gap: .75rem;
+      margin-top: .1rem;
+    }
+    .he-by {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.1rem, 3vw, 1.6rem);
-      font-style: italic; font-weight: 300;
-      color: var(--mid); letter-spacing: .04em; margin-bottom: 2.5rem;
+      font-style: italic;
+      font-size: clamp(.9rem, 1.6vw, 1.3rem);
+      color: var(--light);
     }
-    .hero-bio {
-      max-width: 480px;
-      font-size: clamp(.9rem, 1.8vw, 1.05rem);
-      color: var(--mid); line-height: 1.75; margin-bottom: 3rem;
+    .he-surname {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+      color: var(--purple);
+      letter-spacing: .03em;
     }
     .hero-chips {
-      display: flex; gap: .75rem;
-      justify-content: center; flex-wrap: wrap;
-      margin-bottom: 3.5rem;
+      display: flex; gap: .75rem; flex-wrap: wrap;
+      margin-bottom: 2.5rem;
     }
     .chip {
-      font-size: .7rem; letter-spacing: .1em;
+      font-size: .68rem; letter-spacing: .1em;
       text-transform: uppercase;
-      padding: .5rem 1.1rem;
+      padding: .45rem 1rem;
       border-radius: 2rem;
       font-weight: 400;
     }
     .chip-purple { background: var(--purple); color: #fff; }
     .chip-beige  { background: var(--beige);  color: #fff; }
     .chip-green  { background: var(--green);  color: #fff; }
-
     .hero-scroll {
-      font-size: .68rem; letter-spacing: .15em;
+      font-size: .62rem; letter-spacing: .15em;
       text-transform: uppercase; color: var(--light);
       text-decoration: none;
-      display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      display: flex; flex-direction: column; align-items: flex-start; gap: .5rem;
     }
     .hero-scroll::after {
       content: ''; display: block;
-      width: 1px; height: 40px; background: var(--light);
+      width: 1px; height: 36px; background: var(--light);
       animation: scrollLine 1.8s ease-in-out infinite;
     }
     @keyframes scrollLine {
       0%, 100% { opacity: .3; transform: scaleY(.6); }
       50%       { opacity: 1;  transform: scaleY(1); }
+    }
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-photo {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+    .hero-card {
+      position: absolute;
+      bottom: 2rem; right: 2rem;
+      background: var(--purple);
+      color: #fff;
+      padding: 1.2rem 1.4rem;
+      max-width: 210px;
+    }
+    .hcard-label {
+      font-size: .58rem; letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.65);
+      margin-bottom: .5rem;
+    }
+    .hcard-text {
+      font-size: .8rem;
+      line-height: 1.55;
+    }
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; grid-template-rows: 55vh auto; }
+      .hero-right { order: -1; }
+      .hero-left { padding: 2rem 1.5rem 3rem; }
+      .he-big { font-size: clamp(4rem, 18vw, 6rem); }
+      .he-surname { font-size: clamp(2rem, 10vw, 3.5rem); }
     }
 
     /* ── STATS ── */
@@ -617,15 +670,29 @@
 
   <!-- HERO -->
   <section class="hero">
-    <p class="hero-tag">@fabiolavnovaes · 2026</p>
-    <h1 class="hero-call">call me &lt;3</h1>
-    <p class="hero-name">Fabíola Novaes</p>
-
-    <div class="hero-chips">
-      <span class="chip chip-purple">artist manager</span>
-      <span class="chip chip-green">creative strategist</span>
+    <div class="hero-left">
+      <p class="hero-eyebrow">@fabiolavnovaes · 2026</p>
+      <div class="hero-editorial">
+        <div class="he-call">call me &lt;3</div>
+        <div class="he-big">FABÍOLA</div>
+        <div class="he-row">
+          <span class="he-by">por</span>
+          <span class="he-surname">NOVAES</span>
+        </div>
+      </div>
+      <div class="hero-chips">
+        <span class="chip chip-purple">artist manager</span>
+        <span class="chip chip-green">creative strategist</span>
+      </div>
+      <a href="#sobre" class="hero-scroll">rolar</a>
     </div>
-    <a href="#sobre" class="hero-scroll">rolar</a>
+    <div class="hero-right">
+      <img class="hero-photo" src="/assets/IMG_3212.png" alt="Fabíola Novaes" />
+      <div class="hero-card">
+        <p class="hcard-label">direção criativa</p>
+        <p class="hcard-text">Construo o posicionamento de marcas e pessoas através da imagem, da estética e da presença.</p>
+      </div>
+    </div>
   </section>
 
 
